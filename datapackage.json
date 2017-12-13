@@ -1,0 +1,258 @@
+{
+  "name": "housing-tenure-by-race-and-ethnicity-by-town",
+  "datapackage_version": "1.0-beta.18",
+  "title": "Housing Tenure by Race and Ethnicity by Town",
+  "description": "Housing Tenure by Race and Ethnicity by Town reports facts about housing units by tenure type and Race/Ethnicity.",
+  "version": "1.0",
+  "licenses": [{
+    "url": "http://opendatacommons.org/licenses/pddl/",
+    "name": "Open Data Commons Public Domain",
+    "version": "1.0",
+    "id": "odc-pddl"
+  }],
+  "sources": [{
+    "name": "uscensus",
+    "web": ""
+  }],
+  "author":[{
+    "name": "Jenna Daly",
+    "email": "jdaly@ctdata.org",
+    "web": "http://ctdata.org"
+  }],
+  "contributor": [],
+  "resources": [{
+    "path": "data/housing_tenure_race_town_2016.csv",
+    "format": "csv",
+    "schema": {
+      "fields": [{
+          "name": "Town",
+          "type": "string",
+          "dimension": false
+        }, {
+          "name": "FIPS",
+          "type": "string",
+          "dimension": false
+        }, {
+          "name": "Year",
+          "type": "string",
+          "dimension": false
+        }, {
+          "name": "Race/Ethnicity",
+          "type": "string",
+          "dimension": true,
+          "constraints": {
+            "enum": ["All",
+                     "American Indian and Alaska Native Alone",   
+                     "Asian Alone",                                
+                     "Black or African American Alone",           
+                     "Hispanic or Latino",                         
+                     "Native Hawaiian and Other Pacific Islander",
+                     "Some Other Race Alone",                      
+                     "Two or More Races",                        
+                     "White Alone",                                
+                     "White Alone Not Hispanic or Latino"]
+         }
+        }, {    
+          "name": "Tenure",
+          "type": "string",
+          "dimension": true,
+          "constraints": {
+            "enum": ["Total", "Renter Occupied", "Owner Occupied"]
+         }
+        }, {            
+          "name": "Measure Type",
+          "type": "string",
+          "dimension": true,
+          "constraints": {
+            "enum": ["Number", "Percent of Total Housing Units", "Percent of Racial/Ethnic Subgroup"]
+         }
+        }, {
+          "name": "Variable",
+          "type": "string",
+          "dimension": true,
+          "constraints": {
+            "enum": ["Occupied Housing Units", "Margins of Error"]
+         }
+        }, {
+          "name": "Value",
+          "type": "number",
+          "dimension": false
+        }]
+      }
+    }
+  ],
+  "last_modified": "12/13/2017",
+  "ckan_extras": {
+    "full_description": {
+      "ckan_name": "Full Description",
+      "value": "Housing units are defined as a house, apartment, mobile home, group of rooms, or single room that is occupied and is designated as separate living quarters having direct access to the outside or through a common hall. Other types of units, such as vans, tents, boats, recreational vehicles (RVs) and train cars are included if they are designated as occupied. A housing unit is occupied if it is its occupants current place of permanent residence at the time of the survey. The three types of data present contain a number estimate, a proportional estimate derived from the total number of occupied housing units in the selected geography, and a proportional estimate derived from the total number of occupied housing units for the given Racial/Ethnic subgroup in the selected geography. Beginning in 2000, individuals were presented with the option to select one or more races. In addition, the Census asked individuals to identify their race separately from identifying their Hispanic origin. The Census has published individual tables for the races and ethnicities provided as supplemental information to the main table that does not dissaggregate by race or ethnicity. Race categories include White, Black or African American, American Indian or Alaska Native, Asian, Native Hawaiian or Other Pacific Islander, Some other race, and Two or more races. We are not including specific combinations of two or more races as the counts of these combinations are small. Ethnic categories include Hispanic or Latino and White Non-Hispanic. This data originates from the American Community Survey 5-Year estimates. Data for the Racial/Ethnic label 'All' comes directly from table B25003. All other labels match the corresponding Racial/Ethnic subtables - B25003A through B25003I.",
+      "type": "string"
+    },
+    "suppression": {
+      "ckan_name": "Suppression",
+      "value": "Some numerators used in deriving the proportions for Racial/Ethnic subgroups were too small for meaningful calculations and have been supressed.",
+      "type": "string"
+    },
+    "technical_notes": {
+      "ckan_name": "Technical Notes",
+      "value": "",
+      "type": "string"
+    },
+    "socrata": {
+      "ckan_name": "Socrata",
+      "value": "False",
+      "type": "string"
+    },
+    "socrata_url": {
+      "ckan_name": "Socrata Dataset URL",
+      "value": "",
+      "type": "string"
+    },
+    "socrata_dataset_name": {
+      "ckan_name": "Socrata Dataset Name",
+      "value": "",
+      "type": "string"
+    }, 
+    "domain": {
+      "ckan_name": "Domain",
+      "value": "Housing",
+      "type": "string"
+    },
+    "subdomain": {
+      "ckan_name": "Subdomain",
+      "value": "Housing Characteristics",
+      "type": "string"
+    },
+    "numerator": {
+      "ckan_name": "Numerator",
+      "value": "Occupied Housing units by Tenure Type and Race/Ethnicity",
+      "type": "string"
+    },
+    "denominator": {
+      "ckan_name": "Denominator",
+      "value": "Total Occupied Housing Units, or Total Occupied Housing Units for selected Race/Ethnicity, per location.",
+      "type": "string"
+    },     
+    "geography": {
+      "ckan_name": "Geography",
+      "value": "Town",
+      "type": "string",
+      "constraints": {"enum": ["Town", "County", "Town/County", "District", "Other"]}
+    },
+    "frequency": {
+      "ckan_name": "Frequency",
+      "value": "Annual",
+      "type": "string"
+    },
+    "years_in_catalog": {
+      "ckan_name": "Years in Catalog",
+      "value": ["2006-2010", "2007-2011", "2008-2012", "2009-2013", "2010-2014", "2011-2015", "2012-2016"],
+      "type": "array"
+    },
+    "latest_year": {
+      "ckan_name": "Latest Year Available",
+      "value": "2012-2016",
+      "type": "string"
+    },
+    "disabled_views": {
+      "ckan_name": "Disabled Views",
+      "value": [],
+      "type": "array",
+      "constraints": {"enum": ["map", "table", "bar", "line"]}
+    },
+    "units": {
+      "ckan_name": "Units",
+      "value": {
+        "Number": "",
+        "Percent": "%"
+      }
+    },
+    "expected_number_of_geographies": {
+      "ckan_name": "Expected Number of Unique Geographies",
+      "value": 170,
+      "type": "string"
+    },     
+    "default": {      
+      "ckan_name": "Default",
+      "value": {
+        "Town": "Connecticut",
+        "Year": ["2012-2016"],
+        "Race/Ethnicity": "All",     
+        "Measure Type": "Number", 
+        "Variable": "Occupied Housing Units"
+      },
+      "type": "object"
+    } 
+  },
+  "spot_checks": [
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "New Haven",
+        "Year":	"2011-2015",
+        "Tenure": "Renter Occupied",
+        "Race/Ethnicity": "White Alone",
+        "Variable":	"Occupied Housing Units",
+        "Measure Type":	"Percent of Total Housing Units"
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "float",
+        "value": 30.1
+      } 
+    }     
+  ],
+  "dimension_groups": [
+     {
+       "Measure Type": ["Number"], 
+       "Race/Ethnicity": ["All",
+                     "American Indian and Alaska Native Alone",   
+                     "Asian Alone",                                
+                     "Black or African American Alone",           
+                     "Hispanic or Latino",                         
+                     "Native Hawaiian and Other Pacific Islander",
+                     "Some Other Race Alone",                      
+                     "Two or More Races",                        
+                     "White Alone",                                
+                     "White Alone Not Hispanic or Latino"],
+       "Tenure": ["Total", "Renter Occupied", "Owner Occupied"],        
+       "Variable": ["Occupied Housing Units", "Margins of Error"]     
+     },
+     {
+       "Measure Type": ["Percent of Total Housing Units"], 
+       "Race/Ethnicity": ["All"],
+       "Tenure": ["Renter Occupied", "Owner Occupied"],        
+       "Variable": ["Occupied Housing Units", "Margins of Error"]     
+     },
+     {
+       "Measure Type": ["Percent of Total Housing Units"], 
+       "Race/Ethnicity": ["American Indian and Alaska Native Alone",   
+                     "Asian Alone",                                
+                     "Black or African American Alone",           
+                     "Hispanic or Latino",                         
+                     "Native Hawaiian and Other Pacific Islander",
+                     "Some Other Race Alone",                      
+                     "Two or More Races",                        
+                     "White Alone",                                
+                     "White Alone Not Hispanic or Latino"],
+       "Tenure": ["Total", "Renter Occupied", "Owner Occupied"],        
+       "Variable": ["Occupied Housing Units", "Margins of Error"]     
+     },     
+     {
+       "Measure Type": ["Percent of Racial/Ethnic Subgroup"], 
+       "Race/Ethnicity": ["American Indian and Alaska Native Alone",   
+                     "Asian Alone",                                
+                     "Black or African American Alone",           
+                     "Hispanic or Latino",                         
+                     "Native Hawaiian and Other Pacific Islander",
+                     "Some Other Race Alone",                      
+                     "Two or More Races",                        
+                     "White Alone",                                
+                     "White Alone Not Hispanic or Latino"],
+       "Tenure": ["Renter Occupied", "Owner Occupied"],        
+       "Variable": ["Occupied Housing Units", "Margins of Error"]     
+     }
+  ]
+}
+
+
